@@ -4,7 +4,7 @@
 Summary:	Utility designed to clean up filenames
 Name:		detox
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/detox/%{name}-%{version}.tar.gz
@@ -41,6 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/detox
 %attr(755,root,root) %{_bindir}/inline-detox
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/detoxrc
+%dir %{_datadir}/detox
 %{_datadir}/detox/*.tbl
 %{_mandir}/man1/detox*
 %{_mandir}/man5/detox*
