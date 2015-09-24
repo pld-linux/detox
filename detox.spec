@@ -4,11 +4,12 @@
 Summary:	Utility designed to clean up filenames
 Name:		detox
 Version:	1.2.0
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/detox/%{name}-%{version}.tar.gz
 # Source0-md5:	04f1bc8501cd40c21610ea3fee7a6fc5
+Patch0:		format-security.patch
 URL:		http://detox.sourceforge.net/
 #BuildRequires:	-
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,6 +22,7 @@ equivalents.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
