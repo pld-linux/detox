@@ -4,7 +4,7 @@
 Summary:	Utility designed to clean up filenames
 Name:		detox
 Version:	1.2.0
-Release:	3
+Release:	4
 License:	BSD-like
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/detox/%{name}-%{version}.tar.gz
