@@ -1,0 +1,20 @@
+Gate the github-issue-0056 valgrind invocation behind USE_VALGRIND, matching
+the rest of tests/legacy. Without it the test always runs under valgrind when
+the binary is on PATH, which fails on build environments that ship valgrind
+but not glibc debuginfo (so the mandatory memcmp redirection cannot be set up).
+
+--- detox-3.0.1/tests/legacy/github-issue-0056/test.sh.orig
++++ detox-3.0.1/tests/legacy/github-issue-0056/test.sh
+@@ -27,7 +27,11 @@
+ WORK=$(realpath $(mktemp -d $BASE/test-custom-XXXXXX))
+ cd "$WORK"
+
+-VALGRIND=$(command -v valgrind || true)
++if [ -n "$USE_VALGRIND" ] ; then
++	VALGRIND=$(command -v valgrind || true)
++else
++	VALGRIND=
++fi
+
+ touch a b c d e f g h i j k
+
